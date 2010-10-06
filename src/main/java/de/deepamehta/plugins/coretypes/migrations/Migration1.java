@@ -2,6 +2,8 @@ package de.deepamehta.plugins.coretypes.migrations;
 
 import de.deepamehta.core.service.Migration;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 import java.util.logging.Logger;
 
@@ -38,12 +40,24 @@ public class Migration1 extends Migration {
             readTypesFromFile("/migrations/topic-type.json");
         } else {
             logger.info("Do NOT create topic type \"Topic Type\" -- already exists");
+            // update icon_src
+            long typeId = dms.getTopicType("de/deepamehta/core/topictype/TopicType").id;
+            Map properties = new HashMap();
+            logger.info("Updating icon_src of topic type \"Topic Type\" (topic " + typeId + ")");
+            properties.put("icon_src", "/de.deepamehta.3-coretypes/images/drawer.png");
+            dms.setTopicProperties(typeId, properties);
         }
         // create topic type "Search Result"
         if (!typeURIs.contains("de/deepamehta/core/topictype/SearchResult")) {
             readTypesFromFile("/migrations/search-result.json");
         } else {
             logger.info("Do NOT create topic type \"Search Result\" -- already exists");
+            // update icon_src
+            long typeId = dms.getTopicType("de/deepamehta/core/topictype/SearchResult").id;
+            Map properties = new HashMap();
+            logger.info("Updating icon_src of topic type \"Search Result\" (topic " + typeId + ")");
+            properties.put("icon_src", "/de.deepamehta.3-coretypes/images/bucket.png");
+            dms.setTopicProperties(typeId, properties);
         }
     }
 }
