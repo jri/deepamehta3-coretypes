@@ -39,14 +39,14 @@ public class CoreTypesPlugin extends Plugin {
             String newTypeUri = (String) topic.getProperty("de/deepamehta/core/property/TypeURI");
             if (!oldTypeUri.equals(newTypeUri)) {
                 logger.info("### Changing type URI from \"" + oldTypeUri + "\" to \"" + newTypeUri + "\"");
-                dms.getTopicType(oldTypeUri).setTypeUri(newTypeUri);
+                dms.getTopicType(oldTypeUri, null).setTypeUri(newTypeUri);  // clientContext=null
             }
             // update type label
             String oldTypeLabel = (String) oldProperties.get("de/deepamehta/core/property/TypeLabel");
             String newTypeLabel = (String) topic.getProperty("de/deepamehta/core/property/TypeLabel");
             if (!oldTypeLabel.equals(newTypeLabel)) {
                 logger.info("### Changing type label from \"" + oldTypeLabel + "\" to \"" + newTypeLabel + "\"");
-                dms.getTopicType(newTypeUri).setLabel(newTypeLabel);
+                dms.getTopicType(newTypeUri, null).setLabel(newTypeLabel);  // clientContext=null
             }
         }
     }

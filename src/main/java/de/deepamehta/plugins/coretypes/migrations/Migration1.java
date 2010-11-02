@@ -41,7 +41,7 @@ public class Migration1 extends Migration {
         } else {
             logger.info("Do NOT create topic type \"Topic Type\" -- already exists");
             // update icon_src
-            long typeId = dms.getTopicType("de/deepamehta/core/topictype/TopicType").id;
+            long typeId = dms.getTopicType("de/deepamehta/core/topictype/TopicType", null).id;     // clientContext=null
             Map properties = new HashMap();
             logger.info("Updating icon_src of topic type \"Topic Type\" (topic " + typeId + ")");
             properties.put("icon_src", "/de.deepamehta.3-coretypes/images/drawer.png");
@@ -53,7 +53,7 @@ public class Migration1 extends Migration {
         } else {
             logger.info("Do NOT create topic type \"Search Result\" -- already exists");
             // update icon_src
-            long typeId = dms.getTopicType("de/deepamehta/core/topictype/SearchResult").id;
+            long typeId = dms.getTopicType("de/deepamehta/core/topictype/SearchResult", null).id;  // clientContext=null
             Map properties = new HashMap();
             logger.info("Updating icon_src of topic type \"Search Result\" (topic " + typeId + ")");
             properties.put("icon_src", "/de.deepamehta.3-coretypes/images/bucket.png");
