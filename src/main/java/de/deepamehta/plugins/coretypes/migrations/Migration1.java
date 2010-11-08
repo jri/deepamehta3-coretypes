@@ -37,7 +37,7 @@ public class Migration1 extends Migration {
         Set typeURIs = dms.getTopicTypeUris();
         // create topic type "Topic Type"
         if (!typeURIs.contains("de/deepamehta/core/topictype/TopicType")) {
-            readTypesFromFile("/migrations/topic-type.json");
+            readMigrationFile("/migrations/topic-type.json");
         } else {
             logger.info("Do NOT create topic type \"Topic Type\" -- already exists");
             // update icon_src
@@ -49,7 +49,7 @@ public class Migration1 extends Migration {
         }
         // create topic type "Search Result"
         if (!typeURIs.contains("de/deepamehta/core/topictype/SearchResult")) {
-            readTypesFromFile("/migrations/search-result.json");
+            readMigrationFile("/migrations/search-result.json");
         } else {
             logger.info("Do NOT create topic type \"Search Result\" -- already exists");
             // update icon_src
