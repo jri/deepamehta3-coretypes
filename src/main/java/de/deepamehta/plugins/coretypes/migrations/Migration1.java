@@ -19,7 +19,19 @@ import java.util.logging.Logger;
  */
 public class Migration1 extends Migration {
 
+    // ---------------------------------------------------------------------------------------------- Instance Variables
+
     private Logger logger = Logger.getLogger(getClass().getName());
+
+    // -------------------------------------------------------------------------------------------------- Public Methods
+
+
+
+    // ***************************
+    // *** Implement Migration ***
+    // ***************************
+
+
 
     /**
      * Creates the topic types "Topic Type" and "Search Result" by reading from file.
